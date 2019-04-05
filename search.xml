@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[你好世界]]></title>
+    <url>%2F2019%2F04%2F01%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to CAN7! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[我是如何建立这个博客的！]]></title>
     <url>%2F2019%2F03%2F23%2F%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AF%9E%E7%94%9F%2F</url>
     <content type="text"><![CDATA[本次学习完全依赖于这位不知名大佬的文章： 2018，你该搭建自己的博客了！*https://juejin.im/entry/5a574864f265da3e3c6c1217*]]></content>
       <categories>
-        <category>web前端blog</category>
+        <category>web前端</category>
+        <category>自学</category>
       </categories>
-      <tags>
-        <tag>learning</tag>
-        <tag>技术</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2019%2F03%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to CAN7! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
