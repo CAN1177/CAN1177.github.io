@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[markdown基础语法总结！]]></title>
+    <url>%2F2019%2F06%2F13%2Fmarkdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[一、标题一级标题二级标题三级标题四级标题五级标题六级标题二、字体加粗 易灿 斜体 易灿 斜体加粗 乌拉 删除线 蛮吉 三、引用 引用一 引用二 引用三 一个&gt; 一条线 四、分割线三个以上的 * 号和-号都可以： 1234-------******** 效果如下： 五、图片图片三种方式： 插入本地图片 (本文件放于桌面，照一张图片，重命名1.jpg就可以显示) 插入网络图片 把图片存入markdown文件 用base64转码工具把图片转成一段字符串，然后把字符串填到基础格式中链接的那个位置。 格式如下： ![avatar][base64str] [base64str]: data:image/png;base64,iVBORw0….. 但是，base64的图片编码如何得来： 使用python将图片转化为base64字符串 12345import base64f=open(&apos;723.png&apos;,&apos;rb&apos;) #二进制方式打开图文件ls_f=base64.b64encode(f.read()) #读取文件内容，转换为base64编码f.close()print(ls_f) base64字符串转化为图片 123456import base64bs=&apos;iVBORw0KGgoAAAANSUhEUg....&apos; # 太长了省略imgdata=base64.b64decode(bs)file=open(&apos;2.jpg&apos;,&apos;wb&apos;)file.write(imgdata)file.close() 六、超链接 语法： 12[超链接名](超链接地址 &quot;超链接title&quot;) title可加可不加 百度 CAN7我的博客 注：Markdown本身语法不支持链接在新页面中打开，貌似简书做了处理，是可以的。别的平台可能就不行了，如果想要在新页面中打开的话可以用html语言的a标签代替。 1234&lt;a href=&quot;超链接地址&quot; target=&quot;_blank&quot;&gt;超链接名&lt;/a&gt;示例&lt;a href=&quot;https://www.jianshu.com/u/1f5ac0cf6a8b&quot; target=&quot;_blank&quot;&gt;简书&lt;/a&gt; 百度 七、列表 无序列表 语法：无序列表用 - + * 任何一种都可以 12345- 列表内容+ 列表内容* 列表内容注意：- + * 跟内容之间都要有一个空格 效果： 列表1 列表2 列表3 有序列表 语法：数字加点 123451.列表内容2.列表内容3.列表内容注意：序号跟内容之间要有空格 列表嵌套 上一级和下一级之间敲三个空格即可 一级无序列表内容 二级无序列表内容 二级无序列表内容 二级无序列表内容 一级无序列表内容 二级有序列表内容 二级有序列表内容 二级有序列表内容 一级有序列表内容 二级无序列表内容 二级无序列表内容 二级无序列表内容 一级有序列表内容 二级有序列表内容 二级有序列表内容 二级有序列表内容 八、表格语法： 1234567891011表头|表头|表头---|:--:|---:内容|内容|内容内容|内容|内容第二行分割表头和内容。- 有一个就行，为了对齐，多加了几个文字默认居左-两边加：表示文字居中-右边加：表示文字居右注：原生的语法两边都要用 | 包起来。此处省略 姓名 兵器 排行 刘备 双锏 大哥 关羽 青龙偃月刀 二哥 张飞 长矛 三弟 12345姓名|技能|排行--|:--:|--:刘备|哭|大哥关羽|打|二哥张飞|骂|三弟 注：姓名之后没有空格 九、代码语法：单行代码：代码之间分别用一个反引号包起来 1`代码内容` 代码块：代码之间分别用三个反引号包起来，且两边的反引号单独占一行 12345(```) 代码... 代码... 代码...(```) 注：为了防止转译，前后三个反引号处加了小括号，实际是没有的。这里只是用来演示，实际中去掉两边小括号即可。 123456789&lt;script&gt; var _hmt = _hmt || []; (function() &#123; var hm = document.createElement("script"); hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s); &#125;)(); &lt;/script&gt; var _hmt = _hmt || []; 十、流程图语法： 123456789​```flowst=&gt;start: 开始op=&gt;operation: My Operationcond=&gt;condition: Yes or No?e=&gt;endst-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op&amp; 123456789101112效果：```flowst=&gt;start: 开始op=&gt;operation: My Operationcond=&gt;condition: Yes or No?e=&gt;endst-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op&amp; `]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[吐槽才能开心]]></title>
-    <url>%2F2019%2F05%2F31%2F%E6%97%A0%E8%81%8A%E7%9A%84%E6%97%B6%E5%80%99%2F</url>
+    <url>%2F2019%2F05%2F31%2F%E5%90%90%E6%A7%BD%E6%97%B6%E5%88%BB%2F</url>
     <content type="text"><![CDATA[吐槽时刻自己从面试准备结束之后，就忙于一些学校的杂事，四年大学在一所甘肃的普通二本度过，专业为信息管理与信息系统。最后，竟然颁发的是管理学学位。无疑，我觉得这是一种”耻辱”。 这段时间自己无非就是写了个破设计，全班43个人，除了3个人自己写的设计和一个人写的论文外，其他39个人，都是买来现成，再加工 （这不是鄙视，或者什么，只是一种无奈）。 这就是自己的一些简单吐槽吧，感觉这几天生活乱乱的，代码几乎没敲，每天浑浑噩噩的睡去，醒来，自己还生病了。想去找个人去说说，但想想还不如自己戴耳机写博客来的舒服一些。嗯嗯，就好比自己自言自语，说着一些自己的一些事情，给另一个自己听。 舒服，虽然就写了这么些字！！！]]></content>
       <categories>
         <category>自己</category>
