@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-08-20T13:55:25.886Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/07/30/Promise%E5%92%8Casync%20await%E8%AF%A6%E8%A7%A3/</loc>
     
     <lastmod>2019-07-30T06:54:26.992Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>http://yoursite.com/2019/04/13/%E5%89%8D%E7%AB%AFhttp%E5%8D%8F%E8%AE%AE/</loc>
     
     <lastmod>2019-04-15T15:55:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/about/index.html</loc>
-    
-    <lastmod>2019-04-13T07:17:30.000Z</lastmod>
     
   </url>
   
