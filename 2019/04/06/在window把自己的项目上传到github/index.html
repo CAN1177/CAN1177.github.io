@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>在window把自己的项目上传到github - CAN7</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Keep moving">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="1.首先简单粗暴的在GitHub上创建自己的库：  2.创建仓库成功后看下图，复制下图这个地址，这是这个仓库的地址，我们项目要传到这里来  3.然后下载git，网上有很多教程（相信自己可以看得懂），安装后运行cd进入到自己的项目目录里（如下图）：  4.然后输入git init，如下图所示，这个意思是在当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）   第二步：">
+<meta name="keywords" content="GitHub,git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在window把自己的项目上传到github">
+<meta property="og:url" content="http://yoursite.com/2019/04/06/在window把自己的项目上传到github/index.html">
+<meta property="og:site_name" content="CAN7">
+<meta property="og:description" content="1.首先简单粗暴的在GitHub上创建自己的库：  2.创建仓库成功后看下图，复制下图这个地址，这是这个仓库的地址，我们项目要传到这里来  3.然后下载git，网上有很多教程（相信自己可以看得懂），安装后运行cd进入到自己的项目目录里（如下图）：  4.然后输入git init，如下图所示，这个意思是在当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）   第二步：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.ytimg.com/vi/OEGm7LXAN_c/maxresdefault.jpg">
+<meta property="og:updated_time" content="2019-04-06T08:37:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在window把自己的项目上传到github">
+<meta name="twitter:description" content="1.首先简单粗暴的在GitHub上创建自己的库：  2.创建仓库成功后看下图，复制下图这个地址，这是这个仓库的地址，我们项目要传到这里来  3.然后下载git，网上有很多教程（相信自己可以看得懂），安装后运行cd进入到自己的项目目录里（如下图）：  4.然后输入git init，如下图所示，这个意思是在当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）   第二步：">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/OEGm7LXAN_c/maxresdefault.jpg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="/css/style.css?v=1588823730359">-->
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="CAN7" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="CAN7"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="CAN7">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="CAN7">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>13</div>
+        <div><span>Tags</span>13</div>
+        <div><span>Categories</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Social</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/web前端/">web前端</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/自学/">自学</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/面试/">面试</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Tagcloud</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/HEXO/" style="font-size: 13.33px;">HEXO</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/egg-js/" style="font-size: 10px;">egg.js</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git管理/" style="font-size: 10px;">git管理</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/吐槽/" style="font-size: 10px;">吐槽</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 CAN7
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="在window把自己的项目上传到github" class="lazyload">
+          <h1>在window把自己的项目上传到github</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月06日</a>
+    <a><i class="nexmoefont icon-areachart"></i>501 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <p>1.首先简单粗暴的在GitHub上创建自己的库：</p>
+<p><img data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/3/21/169a0522d8e59421?w=1186&amp;h=833&amp;f=png&amp;s=193816" alt="img" class="lazyload"></p>
+<p>2.创建仓库成功后看下图，复制下图这个地址，这是这个仓库的地址，我们项目要传到这里来</p>
+<p><img data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/3/21/169a0541861c28c5?w=1563&amp;h=797&amp;f=png&amp;s=112377" alt="img" class="lazyload"></p>
+<p>3.然后下载git，网上有很多教程（相信自己可以看得懂），安装后运行cd进入到自己的项目目录里（如下图）：</p>
+<p><img data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/3/21/169a0577e794e439?w=746&amp;h=453&amp;f=png&amp;s=12951" alt="img" class="lazyload"></p>
+<p>4.然后输入<strong>git init</strong>，如下图所示，这个意思是在当前项目的目录中生成本地的git管理（会发现在当前目录下多了一个.git文件夹）</p>
+<p><img data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/3/21/169a05bb7b7860b1?w=752&amp;h=450&amp;f=png&amp;s=24858" alt="img" class="lazyload"></p>
+<p><img data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/3/21/169a06cdc96b4d57?w=974&amp;h=136&amp;f=png&amp;s=12930" alt="img" class="lazyload"></p>
+<p>第二步：</p>
+<p>输入<strong>git add .</strong>  这个是将项目上所有的文件添加到仓库中的意思，如果想添加某个特定的文件，只需把 <strong>.</strong> 换成这个特定的文件名即可，记住<strong>add和点号中间要有空格</strong>。</p>
+<p>第三步：</p>
+<p>输入<strong>git commit -m “first commit”</strong>，表示你对这次提交的注释，双引号里面的内容可以根据个人的需要更改。</p>
+<p>第四步：</p>
+<p>输入<strong>git remote add origin https://自己的仓库url地址</strong>（上面有说到） 将本地的仓库关联到github上，</p>
+<p>第五步：</p>
+<p>输入<strong>git pull –rebase origin master</strong>    使得远程库与本地库一致，我们把远程库同步到本地库就可以了</p>
+<p>第六步：</p>
+<p>输入<strong>git push -u origin master</strong>，这是把代码上传到github仓库的意思</p>
+<p>5.执行完后，如果没有异常，会等待几秒，然后跳出一个让你输入Username和Password 的窗口，你只要输入</p>
+<p>github的登录账号和密码就行了。</p>
+<p>如果你之前你已经登陆过，那么就跳过上面步骤，直接等待下图就可以了：</p>
+<p><img data-sizes="auto" data-src="https://user-gold-cdn.xitu.io/2019/3/21/169a065360e660cb?w=495&amp;h=120&amp;f=png&amp;s=11893" alt="img" class="lazyload"></p>
+<p>这个是上传进度，这个过程可能有点慢，有时候大的项目要得等个10几分钟，之后去检查GitHub的仓库里有没有就可以了。</p>
+<p><em>本次分享来源于自己的实践，参考了文章：<a href="https://blog.csdn.net/wu2374633583/article/details/7913098" target="_blank" rel="noopener">https://blog.csdn.net/wu2374633583/article/details/7913098</a></em>4</p>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/自学/">自学</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/GitHub/">GitHub</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/git/">git</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>CAN7<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/04/06/在window把自己的项目上传到github/" title="http://yoursite.com/2019/04/06/在window把自己的项目上传到github/" target="_blank" rel="noopener">http://yoursite.com/2019/04/06/在window把自己的项目上传到github/</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+<script src="/js/app.js?v=1588823730366"></script>
+  
+
+
+
+
+
+</body>
+
+</html>

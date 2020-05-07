@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hans">
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  
+  <title>前端面试题基础NO3！ - CAN7</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Keep moving">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png">
+  <meta name="description" content="JavaScript基础面试题1、js基本的数据类型：Number、String、Boolean、Null、Undefined Object 是 JavaScript 中所有对象的父对象数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error新类型：Symbol 2、Ajax">
+<meta name="keywords" content="前端,JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试题基础NO3！">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/JavaScript基础面试题/index.html">
+<meta property="og:site_name" content="CAN7">
+<meta property="og:description" content="JavaScript基础面试题1、js基本的数据类型：Number、String、Boolean、Null、Undefined Object 是 JavaScript 中所有对象的父对象数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error新类型：Symbol 2、Ajax">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.ytimg.com/vi/ka2AwSuOTpI/maxresdefault.jpg">
+<meta property="og:updated_time" content="2019-04-23T04:23:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端面试题基础NO3！">
+<meta name="twitter:description" content="JavaScript基础面试题1、js基本的数据类型：Number、String、Boolean、Null、Undefined Object 是 JavaScript 中所有对象的父对象数据封装类对象：Object、Array、Boolean、Number 和 String其他对象：Function、Arguments、Math、Date、RegExp、Error新类型：Symbol 2、Ajax">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/ka2AwSuOTpI/maxresdefault.jpg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="/css/style.css?v=1588823730326">-->
+</head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="CAN7" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="CAN7"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="CAN7">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="CAN7">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>13</div>
+        <div><span>Tags</span>13</div>
+        <div><span>Categories</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Social</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/20238211" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/nexmoe/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/web前端/">web前端</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/学习/">学习</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/自学/">自学</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/面试/">面试</a>
+          <span class="category-list-count">7</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Tagcloud</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
+      <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/GitHub-Pages/" style="font-size: 10px;">GitHub Pages</a> <a href="/tags/HEXO/" style="font-size: 13.33px;">HEXO</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/HTTP/" style="font-size: 10px;">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 16.67px;">JavaScript</a> <a href="/tags/egg-js/" style="font-size: 10px;">egg.js</a> <a href="/tags/es6/" style="font-size: 10px;">es6</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/git管理/" style="font-size: 10px;">git管理</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/吐槽/" style="font-size: 10px;">吐槽</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 CAN7
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="前端面试题基础NO3！" class="lazyload">
+          <h1>前端面试题基础NO3！</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年04月24日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.4k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 6 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <h1 id="JavaScript基础面试题"><a href="#JavaScript基础面试题" class="headerlink" title="JavaScript基础面试题"></a>JavaScript基础面试题</h1><h2 id="1、js基本的数据类型："><a href="#1、js基本的数据类型：" class="headerlink" title="1、js基本的数据类型："></a>1、js基本的数据类型：</h2><p>Number、String、Boolean、Null、Undefined</p>
+<p>Object 是 JavaScript 中所有对象的父对象<br>数据封装类对象：Object、Array、Boolean、Number 和 String<br>其他对象：Function、Arguments、Math、Date、RegExp、Error<br>新类型：Symbol</p>
+<h2 id="2、Ajax使用"><a href="#2、Ajax使用" class="headerlink" title="2、Ajax使用"></a>2、Ajax使用</h2><p>全称 ： Asynchronous Javascript And XML<br><strong>所谓异步</strong>，就是向服务器发送请求的时候，我们不必等待结果，而是可以同时做其他的事情，等到有了结果它自己会根据设定进行后续操作，与此同时，页面是不会发生整页刷新的，提高了用户体验。<br>创建Ajax的过程：<br>1) 创建XMLHttpRequest对象（异步调用对象）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest();</span><br></pre></td></tr></table></figure>
+<p>2) 创建新的Http请求（方法、URL、是否异步）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.open(‘get’,’example.php’,false);</span><br></pre></td></tr></table></figure>
+<p>3) 设置响应HTTP请求状态变化的函数。<br>onreadystatechange事件中readyState属性等于4。响应的HTTP状态为200(OK)或者304(Not Modified)。<br>4) 发送http请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.send(data);</span><br></pre></td></tr></table></figure>
+<p>5) 获取异步调用返回的数据<br>注意：<br>1) 页面初次加载时，尽量在web服务器一次性输出所有相关的数据，只在页面加载完成之后，用户进行操作时采用ajax进行交互。<br>2) 同步ajax在IE上会产生页面假死的问题。所以建议采用异步ajax。<br>3) 尽量减少ajax请求次数<br>4) ajax安全问题，对于敏感数据在服务器端处理，避免在客户端处理过滤。对于关键业务逻辑代码也必须放在服务器端处理。</p>
+<h2 id="3、JavaScript有几种类型的值-画一下他们的内存图"><a href="#3、JavaScript有几种类型的值-画一下他们的内存图" class="headerlink" title="3、JavaScript有几种类型的值  画一下他们的内存图 "></a>3、<strong>JavaScript有几种类型的值  画一下他们的内存图 </strong></h2><p><em>基本数据类型存储在栈中，引用数据类型（对象）存储在堆中，指针放在栈中。</em></p>
+<p>两种类型的区别是：存储位置不同；原始数据类型直接存储在栈中的简单数据段，占据空间小、大小固定，属于被频繁使用数据，所以放入栈中存储；引用数据类型存储在堆中的对象,占据空间大、大小不固定,如果存储在栈中，将会影响程序运行的性能<br>引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。</p>
+<h2 id="4、-什么是window对象-什么是document对象"><a href="#4、-什么是window对象-什么是document对象" class="headerlink" title="4、 什么是window对象? 什么是document对象?"></a>4、 <strong>什么是window对象? 什么是document对象?</strong></h2><p>window对象代表浏览器中打开的一个窗口。document对象代表整个html文档。实际上，document对象是window对象的一个属性。</p>
+<h2 id="5、-关于事件，IE与火狐的事件机制有什么区别？-如何阻止冒泡？"><a href="#5、-关于事件，IE与火狐的事件机制有什么区别？-如何阻止冒泡？" class="headerlink" title="5、 关于事件，IE与火狐的事件机制有什么区别？ 如何阻止冒泡？"></a><strong>5、 关于事件，IE与火狐的事件机制有什么区别？ 如何阻止冒泡？</strong></h2><p>IE为事件冒泡，Firefox同时支持事件捕获和事件冒泡。但并非所有浏览器都支持事件捕获。jQuery中使用<code>event.stopPropagation()</code>方法可阻止冒泡;（旧IE的方法 <code>ev.cancelBubble = true;</code>）</p>
+<h2 id="6、-什么是闭包（closure），为什么要用它？"><a href="#6、-什么是闭包（closure），为什么要用它？" class="headerlink" title="6、 什么是闭包（closure），为什么要用它？"></a><strong>6、 什么是闭包（closure），为什么要用它？</strong></h2><p>闭包指的是一个函数可以访问另一个函数作用域中变量。常见的构造方法，是在一个函数内部定义另外一个函数。内部函数可以引用外层的变量；外层变量不会被垃圾回收机制回收。<br><strong>注意</strong>，闭包的原理是作用域链，所以闭包访问的上级作用域中的变量是个对象，其值为其运算结束后的最后一个值。<br>优点：避免全局变量污染。缺点：容易造成内存泄漏。<br>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function makeFunc() &#123;</span><br><span class="line">    var name = &quot;Mozilla&quot;;</span><br><span class="line">    function displayName() &#123;</span><br><span class="line">        console.log(name); </span><br><span class="line">    &#125;</span><br><span class="line">    return displayName;</span><br><span class="line">&#125;</span><br><span class="line">var myFunc = makeFunc();</span><br><span class="line">myFunc();   //输出Mozilla</span><br></pre></td></tr></table></figure>
+<p>myFunc 变成一个 闭包。闭包是一种特殊的对象。它由两部分构成：函数，以及创建该函数的环境。环境由闭包创建时在作用域中的任何局部变量组成。在我们的例子中，myFunc 是一个闭包，由 displayName 函数和闭包创建时存在的 “Mozilla” 字符串形成。</p>
+<h2 id="7-、对JSON的了解？"><a href="#7-、对JSON的了解？" class="headerlink" title="7 、对JSON的了解？"></a><strong>7 、对JSON的了解？</strong></h2><p>全称：JavaScript Object Notation<br>JSON中对象通过“{}”来标识，一个“{}”代表一个对象，如{“AreaId”:”123”}，对象的值是键值对的形式（key：value）。JSON是JS的一个严格的子集，一种轻量级的数据交换格式，类似于xml。数据格式简单，易于读写，占用带宽小。</p>
+<p>两个函数：<br>JSON.parse(str)<br>解析JSON字符串 把JSON字符串变成JavaScript值或对象</p>
+<p>JSON.stringify(obj)<br>将一个JavaScript值(对象或者数组)转换为一个 JSON字符串</p>
+<p>eval(‘(‘＋json＋’)’)<br>用eval方法注意加括号 而且这种方式更容易被攻击</p>
+<h2 id="8、documen-write和-innerHTML的区别"><a href="#8、documen-write和-innerHTML的区别" class="headerlink" title="8、documen.write和 innerHTML的区别"></a><strong>8、documen.write和 innerHTML的区别</strong></h2><p>document.write()只能重绘整个页面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">       document.write(&apos;&lt;p&gt;5 secs later&lt;/p&gt;&apos;);</span><br><span class="line">&#125;, 5000);</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.onload = function() &#123; document.write(&quot;HI&quot;);</span><br></pre></td></tr></table></figure>
+<p>innerHTML可以重绘页面的一部分</p>
+<h2 id="9、DOM操作"><a href="#9、DOM操作" class="headerlink" title="9、DOM操作"></a><strong>9、DOM操作</strong></h2><p>（1）创建新节点<br>createDocumentFragment() //创建一个DOM片段<br>createElement() //创建一个具体的元素<br>createTextNode() //创建一个文本节点<br>（2）添加、移除、替换、插入<br>appendChild()<br>removeChild()<br>replaceChild()<br>insertBefore() //在已有的子节点前插入一个新的子节点<br>（3）查找<br>getElementsByTagName() //通过标签名称<br>getElementsByName() //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)<br>getElementById() //通过元素Id，唯一性</p>
+<h2 id="10、数组对象有哪些原生方法，列举一下"><a href="#10、数组对象有哪些原生方法，列举一下" class="headerlink" title="10、数组对象有哪些原生方法，列举一下"></a><strong>10、数组对象有哪些原生方法，列举一下</strong></h2><p>pop、push、shift、unshift、splice、reverse、sort、concat、join、slice、toString、indexOf、lastIndexOf、reduce、reduceRight<br>forEach、map、filter、every、some</p>
+<h2 id="11、那些操作会造成内存泄漏"><a href="#11、那些操作会造成内存泄漏" class="headerlink" title="11、那些操作会造成内存泄漏"></a><strong>11、那些操作会造成内存泄漏</strong></h2><p>全局变量、闭包、DOM清空或删除时，事件未清除、子元素存在引用</p>
+<h2 id="12、响应事件"><a href="#12、响应事件" class="headerlink" title="12、响应事件"></a><strong>12、响应事件</strong></h2><p>onclick鼠标点击某个对象；onfocus获取焦点；onblur失去焦点；onmousedown鼠标被按下</p>
+
+  </article>
+
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/面试/">面试</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/JavaScript/">JavaScript</a> <a class="nexmoefont icon-tag-fill -link" href="/tags/前端/">前端</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>CAN7<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/04/24/JavaScript基础面试题/" title="http://yoursite.com/2019/04/24/JavaScript基础面试题/" target="_blank" rel="noopener">http://yoursite.com/2019/04/24/JavaScript基础面试题/</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+<script src="/js/app.js?v=1588823730338"></script>
+  
+
+
+
+
+
+</body>
+
+</html>
