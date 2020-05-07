@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/06/24/eggjs%E6%8E%A5%E5%8F%A3%E5%AD%A6%E4%B9%A0/</loc>
+    
+    <lastmod>2020-05-07T15:07:07.638Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/03/01/%E8%B7%A8%E5%9F%9F%E7%B2%97%E8%A7%A3/</loc>
     
     <lastmod>2020-05-07T07:14:01.102Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2019/07/30/Promise%E5%92%8Casync%20await%E8%AF%A6%E8%A7%A3/</loc>
     
     <lastmod>2019-07-30T06:54:26.992Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/06/24/eggjs%E6%8E%A5%E5%8F%A3%E5%AD%A6%E4%B9%A0/</loc>
-    
-    <lastmod>2019-06-25T07:34:34.037Z</lastmod>
     
   </url>
   

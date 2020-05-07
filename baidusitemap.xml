@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/06/24/eggjs%E6%8E%A5%E5%8F%A3%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2020-05-07</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2020/03/01/%E8%B7%A8%E5%9F%9F%E7%B2%97%E8%A7%A3/</loc>
     <lastmod>2020-05-07</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/07/30/Promise%E5%92%8Casync%20await%E8%AF%A6%E8%A7%A3/</loc>
     <lastmod>2019-07-30</lastmod>
-  </url>  <url>
-    <loc>http://yoursite.com/2019/06/24/eggjs%E6%8E%A5%E5%8F%A3%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2019-06-25</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/03/23/%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%AF%9E%E7%94%9F/</loc>
     <lastmod>2019-06-13</lastmod>
