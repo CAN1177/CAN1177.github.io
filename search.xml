@@ -214,6 +214,31 @@
     
     
     <entry>
+      <title>前端面试题基础NO1！</title>
+      <link href="/2019/04/13/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80No1/"/>
+      <url>/2019/04/13/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80No1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前端基础面试题总结"><a href="#前端基础面试题总结" class="headerlink" title="前端基础面试题总结"></a>前端基础面试题总结</h2><h3 id="1、HTML5新特性"><a href="#1、HTML5新特性" class="headerlink" title="1、HTML5新特性"></a>1、HTML5新特性</h3><p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。<br>  绘画 canvas;<br>  用于媒介回放的 video 和 audio 元素;<br>  本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失;<br>  sessionStorage 的数据在浏览器关闭后自动删除;<br>  语意化更好的内容元素，比如 article、footer、header、nav、section;<br>  表单控件，calendar、date、time、email、url、search;<br>  新的技术webworker, websocket, Geolocation;</p><h3 id="2、关于SEO性能优化"><a href="#2、关于SEO性能优化" class="headerlink" title="2、关于SEO性能优化"></a>2、关于SEO性能优化</h3><p>（1） 减少http请求次数：CSS Sprites， JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。</p><p>（2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数</p><p>（3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。</p><p>（4） 当需要设置的样式很多时设置className而不是直接操作style。</p><p>（5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。</p><p>（6） 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。</p><p>（7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。</p><p>（8） 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢。<br>对普通的网站有一个统一的思路，就是尽量向前端优化、减少数据库操作、减少磁盘IO。向前端优化指的是，在不影响功能和体验的情况下，能在浏览器执行的不要在服务端执行，能在缓存服务器上直接返回的不要到应用服务器，程序能直接取得的结果不要到外部取得，本机内能取得的数据不要到远程取，内存能取到的不要到磁盘取，缓存中有的不要去数据库查询。减少数据库操作指减少更新次数、缓存结果减少查询次数、将数据库执行的操作尽可能的让你的程序完成（例如join查询），减少磁盘IO指尽量不使用文件系统作为缓存、减少读写文件次数等。程序优化永远要优化慢的部分，换语言是无法“优化”的<br>浏览器中</p><h3 id="3、怎样理解语义化"><a href="#3、怎样理解语义化" class="headerlink" title="3、怎样理解语义化"></a>3、怎样理解语义化</h3><p>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;<br>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;<br>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;<br>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解</p><h3 id="4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？"><a href="#4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？" class="headerlink" title="4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？"></a>4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？</h3><p>   跨域问题是这是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。</p><p>  （1）script标签jsonp跨域；<br>  （2）nginx反向代理；<br>  （3）node.js中间代理跨域；<br>  （4）后端在头部信息设置安全域名；<br>  （5）后端在服务器上设置cors。</p><p>   jsonp跨域原理：首先在客户端注册一个callback，然后把callback的名字传给服务器，服务器生成json数据，然后以JavaScript语法生成一个function，function名字就是传递上来的参数jsonp，最后将json数据直接以参数方式放置到function中，生成js文档，返回给客户端，客户端浏览器解析script标签，并执行返回的JavaScript文档，此时数据作为参数，传入到客户端预先定义好的callback函数里（动态执行回调函数）</p><p>   cors跨域需要设置头部Access-Control-Allow-Origin 参数    </p><h3 id="5、谈一谈对this的理解"><a href="#5、谈一谈对this的理解" class="headerlink" title="5、谈一谈对this的理解"></a>5、谈一谈对this的理解</h3><p>通常情况下，this指向的是执行上下文中当前的对象；<br>在事件函数中，this通常指向的是事件源DOM元素对象；<br>在构造函数中，this通常指向其new所创建的对象本身。</p><p>如何绑定this</p><p>可以使用call（）、apply（）绑定<br>使用Function.prototype.bind()进行绑定<br>使用new关键字进行绑定</p><h3 id="6、call（）、apply（）、bind（）区别"><a href="#6、call（）、apply（）、bind（）区别" class="headerlink" title="6、call（）、apply（）、bind（）区别"></a>6、call（）、apply（）、bind（）区别</h3><p>apply、call、bind 都是可以改变 this 的指向的，但是这三个函数稍有不同。</p><p>其实 apply 和 call 基本类似，他们的区别只是传入的参数不同。</p><p>call 的语法为：<br>fun.call(thisArg[, arg1[, arg2[, …]]])<br>apply的语法为：<br>fun.apply(thisArg, [argsArray])</p><p>所以 apply 和 call 的区别是 call 方法接受的是若干个参数列表，而 apply 接收的是一个包含多个参数的数组。</p><p>bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。<br>所以我们可以看出，bind 是创建一个新的函数，我们必须要手动去调用</p><h3 id="7、CSS3新增"><a href="#7、CSS3新增" class="headerlink" title="7、CSS3新增"></a>7、CSS3新增</h3><p>这里可以分为边框、背景，渐变，阴影、2D转换 3D转换等之类的来说。<br>比如：边框(border-radius、border-shadow、border-image)之类的 </p><h3 id="8、vue数据双向绑定"><a href="#8、vue数据双向绑定" class="headerlink" title="8、vue数据双向绑定"></a>8、vue数据双向绑定</h3><p>利用object.defineproperty()这个方法重新定义了对象获取属性值（get）和设置属性值（set）的操作来实现的。</p><h3 id="9、前端路由"><a href="#9、前端路由" class="headerlink" title="9、前端路由"></a>9、前端路由</h3><p>通常 SPA 中前端路由有2种实现方式：<br>window.history<br>location.hash</p><h3 id="10、let-const-var有什么区别？"><a href="#10、let-const-var有什么区别？" class="headerlink" title="10、let const var有什么区别？"></a>10、let const var有什么区别？</h3><p>let是块级作用域，函数内部使用let定义后，对函数外部无影响。</p><p>const定义的变量不可以修改，而且必须初始化。<br>const b = 2;//正确 // const b;//错误，必须初始化  console.log(‘函数外const定义b：’ + b);//有输出值 // b = 5;5 // console.log(‘函数外修改const定义b：’ + b);//无法输出</p><p>var定义的变量可以修改，如果不初始化会输出undefined，不会报错。</p><p><strong><em>文章来源：<a href="https://juejin.im/post/5ac87838f265da237314b389" target="_blank" rel="noopener">https://juejin.im/post/5ac87838f265da237314b389</a></em></strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 面试 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP相关面试题总结！</title>
       <link href="/2019/04/13/%E5%89%8D%E7%AB%AFhttp%E5%8D%8F%E8%AE%AE/"/>
       <url>/2019/04/13/%E5%89%8D%E7%AB%AFhttp%E5%8D%8F%E8%AE%AE/</url>
@@ -233,31 +258,6 @@
             <tag> 前端 </tag>
             
             <tag> HTTP </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>前端面试题基础NO1！</title>
-      <link href="/2019/04/13/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80No1/"/>
-      <url>/2019/04/13/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E5%9F%BA%E7%A1%80No1/</url>
-      
-        <content type="html"><![CDATA[<h2 id="前端基础面试题总结"><a href="#前端基础面试题总结" class="headerlink" title="前端基础面试题总结"></a>前端基础面试题总结</h2><h3 id="1、HTML5新特性"><a href="#1、HTML5新特性" class="headerlink" title="1、HTML5新特性"></a>1、HTML5新特性</h3><p>HTML5 现在已经不是 SGML 的子集，主要是关于图像，位置，存储，多任务等功能的增加。<br>  绘画 canvas;<br>  用于媒介回放的 video 和 audio 元素;<br>  本地离线存储 localStorage 长期存储数据，浏览器关闭后数据不丢失;<br>  sessionStorage 的数据在浏览器关闭后自动删除;<br>  语意化更好的内容元素，比如 article、footer、header、nav、section;<br>  表单控件，calendar、date、time、email、url、search;<br>  新的技术webworker, websocket, Geolocation;</p><h3 id="2、关于SEO性能优化"><a href="#2、关于SEO性能优化" class="headerlink" title="2、关于SEO性能优化"></a>2、关于SEO性能优化</h3><p>（1） 减少http请求次数：CSS Sprites， JS、CSS源码压缩、图片大小控制合适；网页Gzip，CDN托管，data缓存 ，图片服务器。</p><p>（2） 前端模板 JS+数据，减少由于HTML标签导致的带宽浪费，前端用变量保存AJAX请求结果，每次操作本地变量，不用请求，减少请求次数</p><p>（3） 用innerHTML代替DOM操作，减少DOM操作次数，优化javascript性能。</p><p>（4） 当需要设置的样式很多时设置className而不是直接操作style。</p><p>（5） 少用全局变量、缓存DOM节点查找的结果。减少IO读取操作。</p><p>（6） 避免使用CSS Expression（css表达式)又称Dynamic properties(动态属性)。</p><p>（7） 图片预加载，将样式表放在顶部，将脚本放在底部  加上时间戳。</p><p>（8） 避免在页面的主体布局中使用table，table要等其中的内容完全下载之后才会显示出来，显示比div+css布局慢。<br>对普通的网站有一个统一的思路，就是尽量向前端优化、减少数据库操作、减少磁盘IO。向前端优化指的是，在不影响功能和体验的情况下，能在浏览器执行的不要在服务端执行，能在缓存服务器上直接返回的不要到应用服务器，程序能直接取得的结果不要到外部取得，本机内能取得的数据不要到远程取，内存能取到的不要到磁盘取，缓存中有的不要去数据库查询。减少数据库操作指减少更新次数、缓存结果减少查询次数、将数据库执行的操作尽可能的让你的程序完成（例如join查询），减少磁盘IO指尽量不使用文件系统作为缓存、减少读写文件次数等。程序优化永远要优化慢的部分，换语言是无法“优化”的<br>浏览器中</p><h3 id="3、怎样理解语义化"><a href="#3、怎样理解语义化" class="headerlink" title="3、怎样理解语义化"></a>3、怎样理解语义化</h3><p>html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;<br>即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;<br>搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;<br>使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解</p><h3 id="4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？"><a href="#4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？" class="headerlink" title="4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？"></a>4、怎么实现跨域，jsonp跨域原理，cors跨域需要设置什么？</h3><p>   跨域问题是这是浏览器为了安全实施的同源策略导致的，同源策略限制了来自不同源的document、脚本，同源的意思就是两个URL的域名、协议、端口要完全相同。</p><p>  （1）script标签jsonp跨域；<br>  （2）nginx反向代理；<br>  （3）node.js中间代理跨域；<br>  （4）后端在头部信息设置安全域名；<br>  （5）后端在服务器上设置cors。</p><p>   jsonp跨域原理：首先在客户端注册一个callback，然后把callback的名字传给服务器，服务器生成json数据，然后以JavaScript语法生成一个function，function名字就是传递上来的参数jsonp，最后将json数据直接以参数方式放置到function中，生成js文档，返回给客户端，客户端浏览器解析script标签，并执行返回的JavaScript文档，此时数据作为参数，传入到客户端预先定义好的callback函数里（动态执行回调函数）</p><p>   cors跨域需要设置头部Access-Control-Allow-Origin 参数    </p><h3 id="5、谈一谈对this的理解"><a href="#5、谈一谈对this的理解" class="headerlink" title="5、谈一谈对this的理解"></a>5、谈一谈对this的理解</h3><p>通常情况下，this指向的是执行上下文中当前的对象；<br>在事件函数中，this通常指向的是事件源DOM元素对象；<br>在构造函数中，this通常指向其new所创建的对象本身。</p><p>如何绑定this</p><p>可以使用call（）、apply（）绑定<br>使用Function.prototype.bind()进行绑定<br>使用new关键字进行绑定</p><h3 id="6、call（）、apply（）、bind（）区别"><a href="#6、call（）、apply（）、bind（）区别" class="headerlink" title="6、call（）、apply（）、bind（）区别"></a>6、call（）、apply（）、bind（）区别</h3><p>apply、call、bind 都是可以改变 this 的指向的，但是这三个函数稍有不同。</p><p>其实 apply 和 call 基本类似，他们的区别只是传入的参数不同。</p><p>call 的语法为：<br>fun.call(thisArg[, arg1[, arg2[, …]]])<br>apply的语法为：<br>fun.apply(thisArg, [argsArray])</p><p>所以 apply 和 call 的区别是 call 方法接受的是若干个参数列表，而 apply 接收的是一个包含多个参数的数组。</p><p>bind()方法创建一个新的函数, 当被调用时，将其this关键字设置为提供的值，在调用新函数时，在任何提供之前提供一个给定的参数序列。<br>所以我们可以看出，bind 是创建一个新的函数，我们必须要手动去调用</p><h3 id="7、CSS3新增"><a href="#7、CSS3新增" class="headerlink" title="7、CSS3新增"></a>7、CSS3新增</h3><p>这里可以分为边框、背景，渐变，阴影、2D转换 3D转换等之类的来说。<br>比如：边框(border-radius、border-shadow、border-image)之类的 </p><h3 id="8、vue数据双向绑定"><a href="#8、vue数据双向绑定" class="headerlink" title="8、vue数据双向绑定"></a>8、vue数据双向绑定</h3><p>利用object.defineproperty()这个方法重新定义了对象获取属性值（get）和设置属性值（set）的操作来实现的。</p><h3 id="9、前端路由"><a href="#9、前端路由" class="headerlink" title="9、前端路由"></a>9、前端路由</h3><p>通常 SPA 中前端路由有2种实现方式：<br>window.history<br>location.hash</p><h3 id="10、let-const-var有什么区别？"><a href="#10、let-const-var有什么区别？" class="headerlink" title="10、let const var有什么区别？"></a>10、let const var有什么区别？</h3><p>let是块级作用域，函数内部使用let定义后，对函数外部无影响。</p><p>const定义的变量不可以修改，而且必须初始化。<br>const b = 2;//正确 // const b;//错误，必须初始化  console.log(‘函数外const定义b：’ + b);//有输出值 // b = 5;5 // console.log(‘函数外修改const定义b：’ + b);//无法输出</p><p>var定义的变量可以修改，如果不初始化会输出undefined，不会报错。</p><p><strong><em>文章来源：<a href="https://juejin.im/post/5ac87838f265da237314b389" target="_blank" rel="noopener">https://juejin.im/post/5ac87838f265da237314b389</a></em></strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 面试 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 前端 </tag>
             
         </tags>
       
