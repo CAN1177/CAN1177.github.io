@@ -1,0 +1,298 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vue基础知识总结 | CAN1177</title><meta name="description" content="不可质疑，国内Vue使用者多于React使用者，其中Vue官网有一段这样的表述：“更抽象一点来看，我们可以把组件区分为两类：一类是偏视图表现的 (presentational)，一类则是偏逻辑的 (logical)。我们推荐在前者中使用模板，在后者中使用 JSX 或渲染函数。这两类组件的比例会根据应用类型的不同有所变化，但整体来说我们发现表现类的组件远远多于逻辑类组件”。所以Vue相比React"><meta name="keywords" content="Vue,Vue-router"><meta name="author" content="CAN7"><meta name="copyright" content="CAN7"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"><link rel="dns-prefetch" href="//cdn.jsdelivr.net"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin="crossorigin"><link rel="dns-prefetch" href="https://www.google-analytics.com"><link rel="preconnect" href="https://hm.baidu.com"><link rel="dns-prefetch" href="https://hm.baidu.com"><link rel="preconnect" href="http://ta.qq.com"><link rel="dns-prefetch" href="http://ta.qq.com"><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"><link rel="dns-prefetch" href="https://fonts.googleapis.com"><link rel="preconnect" href="//busuanzi.ibruce.info"><link rel="dns-prefetch" href="//busuanzi.ibruce.info"><meta name="baidu-site-verification" content="yrGAC94EAI"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Vue基础知识总结"><meta name="twitter:description" content="不可质疑，国内Vue使用者多于React使用者，其中Vue官网有一段这样的表述：“更抽象一点来看，我们可以把组件区分为两类：一类是偏视图表现的 (presentational)，一类则是偏逻辑的 (logical)。我们推荐在前者中使用模板，在后者中使用 JSX 或渲染函数。这两类组件的比例会根据应用类型的不同有所变化，但整体来说我们发现表现类的组件远远多于逻辑类组件”。所以Vue相比React"><meta property="og:type" content="article"><meta property="og:title" content="Vue基础知识总结"><meta property="og:url" content="http://yoursite.com/2020/05/11/Vue基础知识总结/"><meta property="og:site_name" content="CAN1177"><meta property="og:description" content="不可质疑，国内Vue使用者多于React使用者，其中Vue官网有一段这样的表述：“更抽象一点来看，我们可以把组件区分为两类：一类是偏视图表现的 (presentational)，一类则是偏逻辑的 (logical)。我们推荐在前者中使用模板，在后者中使用 JSX 或渲染函数。这两类组件的比例会根据应用类型的不同有所变化，但整体来说我们发现表现类的组件远远多于逻辑类组件”。所以Vue相比React"><meta property="article:published_time" content="2020-05-11T08:50:16.000Z"><meta property="article:modified_time" content="2020-05-11T15:21:25.330Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false 取消自動切換'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="canonical" href="http://yoursite.com/2020/05/11/Vue基础知识总结/"><link rel="next" title="Vue高级特性" href="http://yoursite.com/2020/05/10/Vue高级特性/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5/js/md5.min.js"></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0c8c39b682e9b1dd70edec808a593640";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-165920971-1', 'auto');
+ga('send', 'pageview');
+</script><script src="https://tajs.qq.com/stats?sId=66554047" charset="UTF-8"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: true,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">19</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">27</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">5</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础篇"><span class="toc-number">1.</span> <span class="toc-text">基础篇</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#谈谈你对MVVM的理解"><span class="toc-number">1.0.1.</span> <span class="toc-text">谈谈你对MVVM的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue的生命周期"><span class="toc-number">1.0.2.</span> <span class="toc-text">Vue的生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue路由的钩子函数"><span class="toc-number">1.0.3.</span> <span class="toc-text">vue路由的钩子函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue的路由实现-hash模式-和-history模式"><span class="toc-number">1.0.4.</span> <span class="toc-text">Vue的路由实现: hash模式 和 history模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#说一下你对Vuex的理解"><span class="toc-number">1.0.5.</span> <span class="toc-text">说一下你对Vuex的理解</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#谈谈你对-SPA-单页面的理解，它的优缺点分别是什么？"><span class="toc-number">1.0.6.</span> <span class="toc-text">谈谈你对 SPA 单页面的理解，它的优缺点分别是什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#此部分，待更新❤️"><span class="toc-number">1.0.7.</span> <span class="toc-text">此部分，待更新❤️</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#一些面试题"><span class="toc-number">2.</span> <span class="toc-text">一些面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#v-show-与-v-if-有什么区别？"><span class="toc-number">2.0.1.</span> <span class="toc-text">v-show 与 v-if 有什么区别？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#computed-和-watch-的区别"><span class="toc-number">2.0.2.</span> <span class="toc-text">computed 和 watch 的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vue为什么不能检测数组的变化"><span class="toc-number">2.0.3.</span> <span class="toc-text">vue为什么不能检测数组的变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#v-for的key值问题"><span class="toc-number">2.0.4.</span> <span class="toc-text">v-for的key值问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#你有对-Vue-项目进行哪些优化？"><span class="toc-number">2.0.5.</span> <span class="toc-text">你有对 Vue 项目进行哪些优化？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#待更新❤️"><span class="toc-number">3.</span> <span class="toc-text">待更新❤️</span></a></li></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(http://www.diyiziti.com/Res/Images//Temp/87/affb80decb084dcfae0fd1ab74295eaf.PNG)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">CAN1177</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">Vue基础知识总结</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-11 16:50:16"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-11</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-11 23:21:25"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-11</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/学习/">学习</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon far fa-file-word" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">2.5k</span><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-clock" aria-hidden="true"></i><span>阅读时长: 8 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-comments" aria-hidden="true"></i><span>评论数:</span><a href="/2020/05/11/Vue基础知识总结/#post-comment"><span class="gitalk-comment-count comment-count"></span></a></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><img src="https://user-gold-cdn.xitu.io/2020/5/11/17203fabd0d9c9c4?w=1000&amp;h=500&amp;f=png&amp;s=20368" alt></p>
+<p>不可质疑，国内Vue使用者多于React使用者，其中Vue官网有一段这样的表述：“更抽象一点来看，我们可以把组件区分为两类：一类是偏视图表现的 (presentational)，一类则是偏逻辑的 (logical)。我们推荐在前者中使用模板，在后者中使用 JSX 或渲染函数。这两类组件的比例会根据应用类型的不同有所变化，但整体来说我们发现表现类的组件远远多于逻辑类组件”。所以Vue相比React还是有一定的优势！</p>
+<p>但我写这篇<font color="blue" size="5">“流水文章”</font>,是为了面试也为了系统总结一下Vue相关知识。</p>
+<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><h4 id="谈谈你对MVVM的理解"><a href="#谈谈你对MVVM的理解" class="headerlink" title="谈谈你对MVVM的理解"></a>谈谈你对MVVM的理解</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MVVM是 Model、View、 ModelView的缩写 </span><br><span class="line"></span><br><span class="line">Model: 数据模型层，可以在Model中定义数据修改和操作的业务逻辑</span><br><span class="line">View:  数据视图层，将数据模型转为UI展现出来</span><br><span class="line">Model-View:  监听模型数据的改变和控制视图行为、处理用户交互，简单理解就是一个同步View 和 Model的对象，连接Model和View。</span><br></pre></td></tr></table></figure>
+<p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p>
+<p>然后再来看一下的图示：<br><img src="https://user-gold-cdn.xitu.io/2020/5/11/17203fa27b85ba0f?w=556&amp;h=423&amp;f=png&amp;s=11245" alt><br>它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。</p>
+<h4 id="Vue的生命周期"><a href="#Vue的生命周期" class="headerlink" title="Vue的生命周期"></a>Vue的生命周期</h4><p>beforeCreate（创建前） 组件实例被创建之初，组件的属性生效之前</p>
+<p>created （创建后）  组件实例已经完全创建，属性也绑定，但真实 dom 还没有生成，<code>$el</code> 还不可用始，<code>$el</code>还没有显示出来</p>
+<p>beforeMount (挂载前)  在挂载开始之前被调用：相关的 render 函数首次被调用</p>
+<p>mounted （挂载后） el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子</p>
+<p>beforeUpdate （更新前）组件数据更新之前调用，发生在虚拟 DOM 打补丁之前</p>
+<p>update （更新后） 组件数据更新之后</p>
+<p>beforeDestroy （销毁前） 组件销毁前调用</p>
+<p>destroyed （销毁后） 组件销毁后调用</p>
+<p>盗一张图：<font color="blue" size="4">生命周期示意图</font></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/19/16ca74f183827f46?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt></p>
+<ul>
+<li><p>什么是vue生命周期以及作用</p>
+<p> 答： Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、销毁等一系列过程，称之为 Vue 的生命周期。</p>
+<p>作用：它的生命周期中有多个事件钩子，让我们在控制整个Vue实例的过程时更容易形成好的逻辑。<br><br></p>
+</li>
+<li><p>第一次页面加载会触发哪几个钩子？</p>
+<p>答：会触发 下面这几个beforeCreate, created, beforeMount, mounted 。<br><br></p>
+</li>
+<li>DOM 渲染在 哪个周期中就已经完成？<br>答：DOM 渲染在 mounted 中就已经完成了。</li>
+</ul>
+<h4 id="vue路由的钩子函数"><a href="#vue路由的钩子函数" class="headerlink" title="vue路由的钩子函数"></a>vue路由的钩子函数</h4><p><strong>全局守卫：</strong><br>   router.beforeEach 全局前置守卫 进入路由之前<br>   router.beforeResolve 全局解析守卫(2.5.0+) 在beforeRouteEnter调用之后调用<br>   router.afterEach 全局后置钩子 进入路由之后</p>
+<ul>
+<li>使用方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// main.js 入口文件</span><br><span class="line">import router from &apos;./router&apos;; // 引入路由</span><br><span class="line">router.beforeEach((to, from, next) =&gt; &#123; </span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">router.beforeResolve((to, from, next) =&gt; &#123;</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line">router.afterEach((to, from) =&gt; &#123;</span><br><span class="line">  console.log(&apos;afterEach 全局后置钩子&apos;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>关于to from next 这三个参数</p>
+<ul>
+<li><p>to：route即将进入的目标路由对象</p>
+</li>
+<li><p>from：route当前导航正要离开的路由</p>
+</li>
+<li><p>next：function一定要调用该方法resolve这个钩子。执行效果依-赖next方法的调用参数。可以控制网页的跳转。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>组件内守卫：</strong></p>
+<p>beforeRouteEnter 进入路由前<br>beforeRouteUpdate (2.2) 路由复用同一个组件时<br>beforeRouteLeave 离开当前路由时</p>
+<p>这一部分自己不是很清楚，没必要强行写下去了，参考来自于：</p>
+<p><a href="https://juejin.im/post/5b41bdef6fb9a04fe63765f1#heading-4" target="_blank" rel="noopener">Vue的钩子函数[路由导航守卫、keep-alive、生命周期钩子]</a></p>
+<h4 id="Vue的路由实现-hash模式-和-history模式"><a href="#Vue的路由实现-hash模式-和-history模式" class="headerlink" title="Vue的路由实现: hash模式 和 history模式"></a>Vue的路由实现: hash模式 和 history模式</h4><ul>
+<li>hash模式<ul>
+<li>浏览器url中带“#”号</li>
+<li>用window.location.hash读取</li>
+<li>不需要server端支持</li>
+</ul>
+</li>
+<li>history模式<ul>
+<li>采用HTML5的新特性</li>
+<li>且提供了两个新方法：pushState（），replaceState（）可以对浏览器历史记录栈进行修改，以及popState事件的监听到状态变更</li>
+<li>需要server端支持</li>
+</ul>
+</li>
+</ul>
+<h4 id="说一下你对Vuex的理解"><a href="#说一下你对Vuex的理解" class="headerlink" title="说一下你对Vuex的理解"></a>说一下你对Vuex的理解</h4><ul>
+<li><p><strong>是干什么的</strong></p>
+<p>Vuex 是专门为 Vue.js 设计的状态管理库，它采用集中式存储管理应用的所有组件的状态。<br>But，为什么需要状态管理：很多人最初喜欢用 Vue，React 这类框架，大概都是因为框架的响应式特性——当数据改变时，视图会进行重新渲染。这其实正是框架解决的最核心的问题。<br>然而，对于简单的状态管理，一个简单的 store 模式就足够了，那么复杂的状态管理呢，所以，Vuex出现。</p>
+</li>
+<li><p><strong>使用场景</strong></p>
+<ul>
+<li>多个视图使用于同一状态</li>
+</ul>
+<p>传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力</p>
+<ul>
+<li>不同视图需要变更同一状态：</li>
+</ul>
+<p>采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝，通常会导致无法维护的代码</p>
+</li>
+</ul>
+<p><br></p>
+<ul>
+<li><strong>Vuex图示</strong></li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2020/5/11/17203fa2d48a2ba5?w=701&amp;h=551&amp;f=png&amp;s=8112" alt></p>
+<p>流程简化：<br>View components -&gt; actions(dispatch方式) -&gt; mutations(commit方式) -&gt; state -&gt; View components, 而 getters则可以理解为computed，作为state的计算属性</p>
+<ul>
+<li>state<ul>
+<li>Vuex 使用单一状态树,即每个应用将仅仅包含一个store 实例，但单一状态树和模块化并不冲突。存放的数据状态，不可以直接修改里面的数据。</li>
+</ul>
+</li>
+<li>mutations<ul>
+<li>mutations定义的方法动态修改Vuex 的 store 中的状态或数据（必须是同步的）</li>
+</ul>
+</li>
+<li>getters<ul>
+<li>类似vue的计算属性，主要用来过滤一些数据。</li>
+</ul>
+</li>
+<li>action<ul>
+<li>actions可以理解为通过将mutations里面处里数据的方法变成可异步的处理数据的方法，简单的说就是异步操作数据。view 层通过 store.dispath 来分发 action。</li>
+</ul>
+</li>
+</ul>
+<h4 id="谈谈你对-SPA-单页面的理解，它的优缺点分别是什么？"><a href="#谈谈你对-SPA-单页面的理解，它的优缺点分别是什么？" class="headerlink" title="谈谈你对 SPA 单页面的理解，它的优缺点分别是什么？"></a>谈谈你对 SPA 单页面的理解，它的优缺点分别是什么？</h4><p>SPA（ single-page application ）仅在 Web 页面初始化时加载相应的 HTML、JavaScript 和 CSS。一旦页面加载完成，SPA 不会因为用户的操作而进行页面的重新加载或跳转；取而代之的是利用路由机制实现 HTML 内容的变换，UI 与用户的交互，避免页面的重新加载。</p>
+<p><strong>优点：</strong></p>
+<ul>
+<li>用户体验好、快，内容的改变不需要重新加载整个页面，避免了不必要的跳转和重复渲染；</li>
+<li>基于上面一点，SPA 相对对服务器压力小；</li>
+<li>前后端职责分离，架构清晰，前端进行交互逻辑，后端负责数据处理；</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>初次加载耗时多：为实现单页 Web 应用功能及显示效果，需要在加载页面的时候将 JavaScript、CSS 统一加载，部分页面按需加载；<br>前进后退路由管理：由于单页应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理；</li>
+<li>SEO 难度较大：由于所有的内容都在一个页面中动态替换显示，所以在 SEO 上其有着天然的弱势。</li>
+</ul>
+<h4 id="此部分，待更新❤️"><a href="#此部分，待更新❤️" class="headerlink" title="此部分，待更新❤️"></a>此部分，待更新❤️</h4><p>所以，频繁切换要用v-show，不频繁切换要用v-if，为了性能的提升</p>
+<h2 id="一些面试题"><a href="#一些面试题" class="headerlink" title="一些面试题"></a>一些面试题</h2><h4 id="v-show-与-v-if-有什么区别？"><a href="#v-show-与-v-if-有什么区别？" class="headerlink" title="v-show 与 v-if 有什么区别？"></a>v-show 与 v-if 有什么区别？</h4><ul>
+<li><p>区别</p>
+<ul>
+<li>v-show会渲染dom树，用style=display:none隐藏</li>
+<li>v-if  不会渲染dom树</li>
+</ul>
+</li>
+<li><p>结论</p>
+<ul>
+<li>So，频繁切换要用v-show，不频繁切换要用v-if，为了性能的提升</li>
+</ul>
+</li>
+</ul>
+<h4 id="computed-和-watch-的区别"><a href="#computed-和-watch-的区别" class="headerlink" title="computed 和 watch 的区别"></a>computed 和 watch 的区别</h4><ul>
+<li>computed 有缓存，data不变它也不变</li>
+<li>watch 默认是浅监听，watch对于引用类型必须深度监听（要加属性条件）deep:  true</li>
+</ul>
+<h4 id="vue为什么不能检测数组的变化"><a href="#vue为什么不能检测数组的变化" class="headerlink" title="vue为什么不能检测数组的变化"></a>vue为什么不能检测数组的变化</h4><p>Vue2.0对于响应式数据的实现有一些不足：</p>
+<ul>
+<li>无法检测数组/对象的新增</li>
+<li>无法检测通过索引改变数组的操作</li>
+</ul>
+<p>解决：</p>
+<ul>
+<li>Vue.set()方法 //针对第一个问题</li>
+<li>Vue3.0采用Proxy替代了Object.definePropert 因为Object.DefineProperty的缺点，vue3 启用proxy</li>
+</ul>
+<p>那么Object.definePropert的缺点是：<br><br><br>1、深度监听，需要一次性递归到底，一次性计算量大<br><br>2、新增和删除属性监听不到，需要Vue.set() 和 Vue.delete()<br><br>3、无法原生监听数组，需要特殊处理</p>
+<h4 id="v-for的key值问题"><a href="#v-for的key值问题" class="headerlink" title="v-for的key值问题"></a>v-for的key值问题</h4><p>一句话，key的作用主要是为了高效的更新虚拟DOM。另外vue中在使用相同标签名元素的过渡切换时，也会使用到key属性，其目的也是为了让vue可以区分它们，否则vue只会替换其内部属性而不会触发过渡效果</p>
+<h4 id="你有对-Vue-项目进行哪些优化？"><a href="#你有对-Vue-项目进行哪些优化？" class="headerlink" title="你有对 Vue 项目进行哪些优化？"></a>你有对 Vue 项目进行哪些优化？</h4><p>参考资料：</p>
+<p><a href="https://juejin.im/post/5d59f2a451882549be53b170#heading-28" target="_blank" rel="noopener">你有对 Vue 项目进行哪些优化？</a></p>
+<p><strong>（1）代码层面的优化</strong></p>
+<ul>
+<li>v-if 和 v-show 区分使用场景</li>
+<li>computed 和 watch  区分使用场景</li>
+<li>v-for 遍历必须为 item 添加 key，且避免同时使用 v-if</li>
+<li>长列表性能优化</li>
+<li>事件的销毁</li>
+<li>图片资源懒加载</li>
+<li>路由懒加载</li>
+<li>第三方插件的按需引入</li>
+<li>优化无限列表性能</li>
+<li>服务端渲染 SSR or 预渲染</li>
+</ul>
+<p><strong>（2）Webpack 层面的优化</strong></p>
+<ul>
+<li>Webpack 对图片进行压缩</li>
+<li>减少 ES6 转为 ES5 的冗余代码</li>
+<li>提取公共代码</li>
+<li>模板预编译</li>
+<li>提取组件的 CSS</li>
+<li>优化 SourceMap</li>
+<li>构建结果输出分析</li>
+<li>Vue 项目的编译优化</li>
+</ul>
+<p><strong>（3）基础的 Web 技术的优化</strong></p>
+<ul>
+<li>开启 gzip 压缩</li>
+<li>浏览器缓存</li>
+<li>CDN 的使用</li>
+<li>使用 Chrome Performance 查找性能瓶颈</li>
+</ul>
+<h2 id="待更新❤️"><a href="#待更新❤️" class="headerlink" title="待更新❤️"></a>待更新❤️</h2></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">CAN7</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2020/05/11/Vue基础知识总结/">http://yoursite.com/2020/05/11/Vue基础知识总结/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com" target="_blank">CAN1177</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue/">Vue</a><a class="post-meta__tags" href="/tags/Vue-router/">Vue-router</a></div><div class="post_share"><div class="social-share" data-image="http://www.diyiziti.com/Res/Images//Temp/87/affb80decb084dcfae0fd1ab74295eaf.PNG" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/wechat.png" alt="微信"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/alipay.jpg" alt="支付寶"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/05/10/Vue高级特性/"><img class="next_cover" src="http://www.diyiziti.com/Res/Images//Temp/391/27281abfc35446bf954d4b0bf0b991fc.PNG" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Vue高级特性</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/05/10/Vue高级特性/" title="Vue高级特性"><img class="relatedPosts_cover" src="http://www.diyiziti.com/Res/Images//Temp/391/27281abfc35446bf954d4b0bf0b991fc.PNG"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-10</div><div class="relatedPosts_title">Vue高级特性</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: '92fd9422180bb330aecb',
+  clientSecret: '9d90f34d94c8793ddb9e4387c53849c746ef0d55',
+  repo: 'CAN1177.github.io',
+  owner: 'CAN1177',
+  admin: ['CAN1177'],
+  id: md5(decodeURI(location.pathname)),
+  language: 'zh-CN',
+  perPage: 10,
+  distractionFreeMode: false,
+  pagerDirection: 'last',
+  createIssueManually: false,
+  updateCountCallback: commentCount
+})
+gitalk.render('gitalk-container')
+
+function commentCount(n){
+  try {
+    document.getElementsByClassName('gitalk-comment-count')[0].innerHTML= n
+  } catch (e) {
+    return false
+  }
+}</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By CAN7</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div><div class="footer_custom_text">Hi, welcome to my <a href="http://yican.fun">blog</a>!</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-moon" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="/js/search/local-search.js"></script></body></html>

@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Vue基础知识总结]]></title>
+    <url>%2F2020%2F05%2F11%2FVue%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[不可质疑，国内Vue使用者多于React使用者，其中Vue官网有一段这样的表述：“更抽象一点来看，我们可以把组件区分为两类：一类是偏视图表现的 (presentational)，一类则是偏逻辑的 (logical)。我们推荐在前者中使用模板，在后者中使用 JSX 或渲染函数。这两类组件的比例会根据应用类型的不同有所变化，但整体来说我们发现表现类的组件远远多于逻辑类组件”。所以Vue相比React还是有一定的优势！ 但我写这篇“流水文章”,是为了面试也为了系统总结一下Vue相关知识。 基础篇谈谈你对MVVM的理解MVVM是 Model、View、 ModelView的缩写 Model: 数据模型层，可以在Model中定义数据修改和操作的业务逻辑View: 数据视图层，将数据模型转为UI展现出来Model-View: 监听模型数据的改变和控制视图行为、处理用户交互，简单理解就是一个同步View 和 Model的对象，连接Model和View。 ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。 然后再来看一下的图示：它采用双向绑定（data-binding）：View的变动，自动反映在 ViewModel，反之亦然。 Vue的生命周期beforeCreate（创建前） 组件实例被创建之初，组件的属性生效之前 created （创建后） 组件实例已经完全创建，属性也绑定，但真实 dom 还没有生成，$el 还不可用始，$el还没有显示出来 beforeMount (挂载前) 在挂载开始之前被调用：相关的 render 函数首次被调用 mounted （挂载后） el 被新创建的 vm.$el 替换，并挂载到实例上去之后调用该钩子 beforeUpdate （更新前）组件数据更新之前调用，发生在虚拟 DOM 打补丁之前 update （更新后） 组件数据更新之后 beforeDestroy （销毁前） 组件销毁前调用 destroyed （销毁后） 组件销毁后调用 盗一张图：生命周期示意图 什么是vue生命周期以及作用 答： Vue 实例从创建到销毁的过程，就是生命周期。从开始创建、初始化数据、编译模板、挂载Dom→渲染、更新→渲染、销毁等一系列过程，称之为 Vue 的生命周期。 作用：它的生命周期中有多个事件钩子，让我们在控制整个Vue实例的过程时更容易形成好的逻辑。 第一次页面加载会触发哪几个钩子？ 答：会触发 下面这几个beforeCreate, created, beforeMount, mounted 。 DOM 渲染在 哪个周期中就已经完成？答：DOM 渲染在 mounted 中就已经完成了。 vue路由的钩子函数全局守卫： router.beforeEach 全局前置守卫 进入路由之前 router.beforeResolve 全局解析守卫(2.5.0+) 在beforeRouteEnter调用之后调用 router.afterEach 全局后置钩子 进入路由之后 使用方法 // main.js 入口文件import router from &apos;./router&apos;; // 引入路由router.beforeEach((to, from, next) =&gt; &#123; next();&#125;);router.beforeResolve((to, from, next) =&gt; &#123; next();&#125;);router.afterEach((to, from) =&gt; &#123; console.log(&apos;afterEach 全局后置钩子&apos;);&#125;); 关于to from next 这三个参数 to：route即将进入的目标路由对象 from：route当前导航正要离开的路由 next：function一定要调用该方法resolve这个钩子。执行效果依-赖next方法的调用参数。可以控制网页的跳转。 组件内守卫： beforeRouteEnter 进入路由前beforeRouteUpdate (2.2) 路由复用同一个组件时beforeRouteLeave 离开当前路由时 这一部分自己不是很清楚，没必要强行写下去了，参考来自于： Vue的钩子函数[路由导航守卫、keep-alive、生命周期钩子] Vue的路由实现: hash模式 和 history模式 hash模式 浏览器url中带“#”号 用window.location.hash读取 不需要server端支持 history模式 采用HTML5的新特性 且提供了两个新方法：pushState（），replaceState（）可以对浏览器历史记录栈进行修改，以及popState事件的监听到状态变更 需要server端支持 说一下你对Vuex的理解 是干什么的 Vuex 是专门为 Vue.js 设计的状态管理库，它采用集中式存储管理应用的所有组件的状态。But，为什么需要状态管理：很多人最初喜欢用 Vue，React 这类框架，大概都是因为框架的响应式特性——当数据改变时，视图会进行重新渲染。这其实正是框架解决的最核心的问题。然而，对于简单的状态管理，一个简单的 store 模式就足够了，那么复杂的状态管理呢，所以，Vuex出现。 使用场景 多个视图使用于同一状态 传参的方法对于多层嵌套的组件将会非常繁琐，并且对于兄弟组件间的状态传递无能为力 不同视图需要变更同一状态： 采用父子组件直接引用或者通过事件来变更和同步状态的多份拷贝，通常会导致无法维护的代码 Vuex图示 流程简化：View components -&gt; actions(dispatch方式) -&gt; mutations(commit方式) -&gt; state -&gt; View components, 而 getters则可以理解为computed，作为state的计算属性 state Vuex 使用单一状态树,即每个应用将仅仅包含一个store 实例，但单一状态树和模块化并不冲突。存放的数据状态，不可以直接修改里面的数据。 mutations mutations定义的方法动态修改Vuex 的 store 中的状态或数据（必须是同步的） getters 类似vue的计算属性，主要用来过滤一些数据。 action actions可以理解为通过将mutations里面处里数据的方法变成可异步的处理数据的方法，简单的说就是异步操作数据。view 层通过 store.dispath 来分发 action。 谈谈你对 SPA 单页面的理解，它的优缺点分别是什么？SPA（ single-page application ）仅在 Web 页面初始化时加载相应的 HTML、JavaScript 和 CSS。一旦页面加载完成，SPA 不会因为用户的操作而进行页面的重新加载或跳转；取而代之的是利用路由机制实现 HTML 内容的变换，UI 与用户的交互，避免页面的重新加载。 优点： 用户体验好、快，内容的改变不需要重新加载整个页面，避免了不必要的跳转和重复渲染； 基于上面一点，SPA 相对对服务器压力小； 前后端职责分离，架构清晰，前端进行交互逻辑，后端负责数据处理； 缺点： 初次加载耗时多：为实现单页 Web 应用功能及显示效果，需要在加载页面的时候将 JavaScript、CSS 统一加载，部分页面按需加载；前进后退路由管理：由于单页应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理； SEO 难度较大：由于所有的内容都在一个页面中动态替换显示，所以在 SEO 上其有着天然的弱势。 此部分，待更新❤️所以，频繁切换要用v-show，不频繁切换要用v-if，为了性能的提升 一些面试题v-show 与 v-if 有什么区别？ 区别 v-show会渲染dom树，用style=display:none隐藏 v-if 不会渲染dom树 结论 So，频繁切换要用v-show，不频繁切换要用v-if，为了性能的提升 computed 和 watch 的区别 computed 有缓存，data不变它也不变 watch 默认是浅监听，watch对于引用类型必须深度监听（要加属性条件）deep: true vue为什么不能检测数组的变化Vue2.0对于响应式数据的实现有一些不足： 无法检测数组/对象的新增 无法检测通过索引改变数组的操作 解决： Vue.set()方法 //针对第一个问题 Vue3.0采用Proxy替代了Object.definePropert 因为Object.DefineProperty的缺点，vue3 启用proxy 那么Object.definePropert的缺点是：1、深度监听，需要一次性递归到底，一次性计算量大2、新增和删除属性监听不到，需要Vue.set() 和 Vue.delete()3、无法原生监听数组，需要特殊处理 v-for的key值问题一句话，key的作用主要是为了高效的更新虚拟DOM。另外vue中在使用相同标签名元素的过渡切换时，也会使用到key属性，其目的也是为了让vue可以区分它们，否则vue只会替换其内部属性而不会触发过渡效果 你有对 Vue 项目进行哪些优化？参考资料： 你有对 Vue 项目进行哪些优化？ （1）代码层面的优化 v-if 和 v-show 区分使用场景 computed 和 watch 区分使用场景 v-for 遍历必须为 item 添加 key，且避免同时使用 v-if 长列表性能优化 事件的销毁 图片资源懒加载 路由懒加载 第三方插件的按需引入 优化无限列表性能 服务端渲染 SSR or 预渲染 （2）Webpack 层面的优化 Webpack 对图片进行压缩 减少 ES6 转为 ES5 的冗余代码 提取公共代码 模板预编译 提取组件的 CSS 优化 SourceMap 构建结果输出分析 Vue 项目的编译优化 （3）基础的 Web 技术的优化 开启 gzip 压缩 浏览器缓存 CDN 的使用 使用 Chrome Performance 查找性能瓶颈 待更新❤️]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+        <tag>Vue-router</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Vue高级特性]]></title>
     <url>%2F2020%2F05%2F10%2FVue%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7%2F</url>
     <content type="text"><![CDATA[Vue为我们提供了很多高级特性，学习和掌握它们有助于提高我们的代码水平，本次小结来源于慕课网实战视频，网上搜索了一下，发先已经有同学写好了总结，那我就借花献佛： 高级特性前端进阶必会的六个Vue高级特性 除此之外，小小补充一下： watch进阶从我们刚开始学习Vue的时候，对于侦听属性，都是简单地如下面一般使用：watch:&#123; a()&#123; //doSomething &#125;&#125; 实际上，Vue对watch提供了很多进阶用法。 handler函数以对象和handler函数的方式来定义一个监听属性，handler就是处理监听变动时的函数：watch:&#123; a:&#123; handler:&apos;doSomething&apos; &#125;&#125;,methods:&#123; doSomething()&#123; //当 a 发生变化的时候，做些处理 &#125;&#125; handler有啥用？是多此一举么？用途主要有两点： 将处理逻辑抽象出去了，以method的方式被复用 给定义下面两个重要属性留出了编写位置 deep属性不知道你注意到了没有？ 当watch的是一个Object类型的数据，如果这个对象内部的某个值发生了改变，并不会触发watch动作！ 也就是说，watch默认是浅监听，watch对于值类型可以监听，但是引用类型必须深度监听（要加属性条件）deep: true 为解决这一问题，就要使用deep属性：watch:&#123; obj:&#123; handler:&apos;doSomething&apos;, deep:true &#125;&#125;,methods:&#123; doSomething()&#123; //当 obj 发生变化的时候，做些处理 &#125;&#125; deep属性默认为false，也就是我们常用的watch模式。 样式穿透我们知道，在单文件组件的style中使用 scoped 属性后，父组件的样式将不会渗透到子组件中。 不过一个子组件的根节点会同时受其父组件的 scoped CSS 和子组件的 scoped CSS 的影响。这样设计是为了让父组件可以从布局的角度出发，调整其子组件根元素的样式。 如果你希望父组件的 scoped 样式中的一个选择器能够作用得“更深”，例如影响子组件，可以使用深度选择器： &gt;&gt;&gt; 操作符。&lt;style scoped&gt;.a &gt;&gt;&gt; .b &#123; /* ... */ &#125;&lt;/style&gt; 上述代码将会编译成：.a[data-v-f3f3eg9] .b &#123; /* ... */ &#125; 但是，有些像 Sass 之类的预处理器无法正确解析 &gt;&gt;&gt;。这种情况下你可以使用 /deep/ 或 ::v-deep 操作符，这两者都是 &gt;&gt;&gt; 的别名，实现同样的功能。 我们都知道，通过 v-html 创建的 DOM 内容不受 scoped 样式影响，可以通过深度作用选择器&gt;&gt;&gt;来为他们设置样式。 吧啦吧啦，继续更新❤️]]></content>
@@ -120,8 +132,8 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>前端</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -189,8 +201,8 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>JavaScript</tag>
         <tag>前端</tag>
+        <tag>JavaScript</tag>
         <tag>HTML</tag>
       </tags>
   </entry>
