@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[JavaScript数组方法参考]]></title>
     <url>%2F2020%2F05%2F16%2FJavaScript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E5%8F%82%E8%80%83%2F</url>
-    <content type="text"><![CDATA[这些数组方法，时间久了不用的话，就会淡忘，那么就画了这张图辅导记忆：]]></content>
+    <content type="text"><![CDATA[这些数组方法，时间久了不用的话，就会淡忘，那么就画了这张图辅导记忆： JavaScript数组方法参考]]></content>
       <categories>
         <category>学习</category>
       </categories>
@@ -171,8 +171,8 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -240,8 +240,8 @@
         <category>面试</category>
       </categories>
       <tags>
-        <tag>前端</tag>
         <tag>JavaScript</tag>
+        <tag>前端</tag>
         <tag>HTML</tag>
       </tags>
   </entry>
